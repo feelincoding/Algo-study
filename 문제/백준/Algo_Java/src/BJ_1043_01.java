@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BJ_1043_거짓말 {
+public class BJ_1043_01 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -32,10 +32,10 @@ public class BJ_1043_거짓말 {
         for (int i = 0; i < partyPeopleList.length; i++) {
             boolean updateCheck = false;
             boolean restartCheck = false;
-            if (knownTruthN == 0) {
-                result = partyN;
-                break;
-            }
+            // if (knownTruthN == 0) {
+            //     result = partyN;
+            //     break;
+            // }
 
             // 파티내에 진실아는 사람 있는지 확인
             for (int j = 0; j < partyPeopleList[i].size(); j++) {
@@ -59,6 +59,8 @@ public class BJ_1043_거짓말 {
                 updateCheck = false;
                 restartCheck = false;
             }
+            updateCheck = false;
+            restartCheck = false;
         }
         // System.out.println(knownTruthPeople.toString());
         for (int i = 0; i < partyPeopleList.length; i++) {
@@ -66,6 +68,7 @@ public class BJ_1043_거짓말 {
             for (int j = 0; j < partyPeopleList[i].size(); j++) {
                 if (knownTruthPeople.contains(partyPeopleList[i].get(j))) {
                     resultCheck = false;
+                    break;
                 }
             }
             if (resultCheck) {
