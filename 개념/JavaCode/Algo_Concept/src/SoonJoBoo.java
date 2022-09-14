@@ -9,7 +9,7 @@ public class SoonJoBoo {
     public static void main(String args[]) {
         // nPr(0);
         // nPir(0);
-        nCr(0, 0);
+        nCr2(0, 0);
         // nHr(0, 0);
         System.out.println(count);
     }

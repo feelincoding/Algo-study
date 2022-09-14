@@ -1,3 +1,4 @@
+package bj;
 import java.io.*;
 import java.util.*;
 
@@ -19,17 +20,18 @@ public class BJ_1158_01 {
         // int check = 2;
         while (!arr.isEmpty()) {
             count %= arr.size();
-            if (count % K == (K-1)) {
-                
+            if (count % K == (K - 1)) {
                 result.add(arr.get(count));
                 arr.remove(count);
                 count++;
                 System.out.println(result.toString());
+            } else {
+                count++;
             }
-            count++;
         }
         System.out.println(result.toString());
     }
+
     public class Node {
         int data;
         Node link;
