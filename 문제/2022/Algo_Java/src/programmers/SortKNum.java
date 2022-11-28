@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SortKNum {
     static int[] array = { 1, 5, 2, 6, 3, 7, 4 };
-    static int[][] commands = { { 2, 5, 3 }, { 4, 4, 1 }, { 1, 7, 3 }, { 5, 6, 3 } };
+    static int[][] commands = { { 2, 5, 3 }, { 4, 4, 1 }, { 1, 7, 3 } };
 
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
@@ -25,5 +25,9 @@ public class SortKNum {
         for (int i = 0; i < answer.length; i++) {
             answer[i] = list.get(i);
         }
+        
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
     }
 }
