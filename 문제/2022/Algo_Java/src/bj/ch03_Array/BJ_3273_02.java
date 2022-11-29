@@ -21,7 +21,6 @@ public class BJ_3273_02 {
             if (arr[i] == 1 && arr[X - i] == 1) {
                 result += 1;
             }
-
         }
         System.out.println(result);
 
