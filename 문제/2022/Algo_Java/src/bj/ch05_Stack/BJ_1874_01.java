@@ -20,24 +20,16 @@ public class BJ_1874_01 {
                 stack.push(count);
                 sb.append("+\n");
             }
-            if (count == num) {
+            if (stack.peek() == num) {
                 stack.pop();
                 sb.append("-\n");
-            } else if (count > num) {
-                int peek = stack.peek();
-                if (peek == num) {
-                    stack.pop();
-                    sb.append("-\n");
-                } else {
-                    System.out.println("No");
-                    flag = false;
-                    break loop;
-                }
+            } else {
+
+                System.out.println("NO");
+                flag = false;
+                break loop;
+
             }
-            // System.out.println(">>>>num : " + num);
-            // System.out.println(">>>>count : " + count);
-            // System.out.println(">>>>stack : " + stack.toString());
-            // System.out.println(">>>>sb : " + sb.toString());
         }
         if (flag) {
             sb.deleteCharAt(sb.length() - 1);
