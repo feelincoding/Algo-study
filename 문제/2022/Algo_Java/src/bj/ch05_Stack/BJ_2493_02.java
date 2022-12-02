@@ -3,7 +3,7 @@ package bj.ch05_Stack;
 import java.io.*;
 import java.util.*;
 
-public class BJ_2493_01 {
+public class BJ_2493_02 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -16,23 +16,8 @@ public class BJ_2493_01 {
         for (int i = 1; i <= N; i++) {
             int num = Integer.parseInt(st.nextToken());
             Top top = new Top(i, num);
-            Top peek = stack.peek();
-            if (peek.height >= top.height) {
-                stack.push(top);
-                sb.append(peek.location + " ");
-            } else {
-                while (stack.peek().height < top.height) {
-                    if (stack.peek().height == 0) {
-                        stack.push(top);
-                        sb.append(0 + " ");
-                        break;
-                    }
-                    stack.pop();
-                    if (stack.peek().height >= top.height) {
-                        sb.append(stack.peek().location + " ");
-                        stack.push(top);
-                    }
-                }
+            while(stack.peek().height<top.height){
+                
             }
         }
         System.out.println(sb.toString());
