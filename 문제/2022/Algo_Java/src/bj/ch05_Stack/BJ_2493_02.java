@@ -3,7 +3,7 @@ package bj.ch05_Stack;
 import java.io.*;
 import java.util.*;
 
-public class BJ_2493_02 {
+public class BJ_2493_02 {// 0번째 길이를 최고로 생각했을 때
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -12,13 +12,15 @@ public class BJ_2493_02 {
         StringBuilder sb = new StringBuilder();
 
         st = new StringTokenizer(br.readLine());
-        stack.push(new Top(0, 0));
+        stack.push(new Top(0, 100000001));
         for (int i = 1; i <= N; i++) {
             int num = Integer.parseInt(st.nextToken());
             Top top = new Top(i, num);
-            while(stack.peek().height<top.height){
-                
+            while (stack.peek().height < top.height) {
+                stack.pop();
             }
+            sb.append(stack.peek().location + " ");
+            stack.push(top);
         }
         System.out.println(sb.toString());
     }

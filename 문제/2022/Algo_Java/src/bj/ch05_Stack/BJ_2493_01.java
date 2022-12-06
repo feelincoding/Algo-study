@@ -3,7 +3,7 @@ package bj.ch05_Stack;
 import java.io.*;
 import java.util.*;
 
-public class BJ_2493_01 {
+public class BJ_2493_01 {// 0번째를 길이를 0으로 생각했을 때
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
