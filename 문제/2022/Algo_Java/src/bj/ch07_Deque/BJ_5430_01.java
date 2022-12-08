@@ -8,6 +8,8 @@ public class BJ_5430_01 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int T = Integer.parseInt(st.nextToken());
+        Deque<Integer> dq = new ArrayDeque<>();
+        StringBuilder sb = new StringBuilder();
         for (int t = 0; t < T; t++) {
             char[] commands = br.readLine().toCharArray();
             // char[] commands = br.readLine().toCharArray();
@@ -18,9 +20,22 @@ public class BJ_5430_01 {
                     .replace("]", ""));
             int[] nArr = new int[st.countTokens()];
             for (int i = 0; i < nArr.length; i++) {
-                nArr[i] = Integer.parseInt(st.nextToken());
+                dq.add(Integer.parseInt(st.nextToken()));
+            }
+            for (int i = 0; i < commands.length; i++) {
+                char command = commands[i];
+                if (command == 'D') {
+                    if (dq.isEmpty()) {
+                        System.out.println("error");
+                        break;
+                    } else {
+                        dq.poll();
+                    }
+                } else {
+                    
+                }
             }
         }
-        
+
     }
 }
