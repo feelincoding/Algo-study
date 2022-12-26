@@ -22,6 +22,8 @@ public class BJ_5430_01 {
             for (int i = 0; i < nArr.length; i++) {
                 dq.add(Integer.parseInt(st.nextToken()));
             }
+            System.out.println("dq: " + dq);
+
             for (int i = 0; i < commands.length; i++) {
                 char command = commands[i];
                 if (command == 'D') {
@@ -32,9 +34,19 @@ public class BJ_5430_01 {
                         dq.poll();
                     }
                 } else {
-                    
+                    if (i < commands.length - 1) {
+                        if (commands[i + 1] == command) {
+                            i++;
+                            continue;
+                        } else{
+
+                        }
+                    }else{
+                        
+                    }
                 }
             }
+            dq.clear();
         }
 
     }
