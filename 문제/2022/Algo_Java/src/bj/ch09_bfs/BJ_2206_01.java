@@ -7,7 +7,7 @@ import java.io.*;
  * 한 칸 부술 수 있음
  * 안 부순 경우
  * 하나 부순 경우 더 부술수는 없어
- * 
+ * map 필요
  */
 public class BJ_2206_01 {
     public static int[] di = { -1, 1, 0, 0 };
