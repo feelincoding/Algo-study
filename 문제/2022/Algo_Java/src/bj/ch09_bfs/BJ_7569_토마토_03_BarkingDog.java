@@ -3,12 +3,13 @@ package bj.ch09_bfs;
 import java.util.*;
 import java.io.*;
 
-public class BJ_7569_토마토_01 {
+public class BJ_7569_토마토_03_BarkingDog {
     /*
      * 
      */
     static int N, M, H;
     static int[][][] box;
+    static int[][][] dist;
     static int[] dh = { -1, 1, 0, 0, 0, 0 };
     // static int[] dn = { 0, 0, 0, 0 - 1, 1 };
     // static int[] dm = { 0, 0, -1, 1, 0, 0 };
@@ -23,6 +24,7 @@ public class BJ_7569_토마토_01 {
         N = Integer.parseInt(st.nextToken());
         H = Integer.parseInt(st.nextToken());
         box = new int[H][N][M];
+        dist = new int[H][N][M];
 
         for (int h = 0; h < H; h++) {
             for (int n = 0; n < N; n++) {
@@ -33,50 +35,46 @@ public class BJ_7569_토마토_01 {
                     if (tomato == 1) {
                         q.add(new int[] { h, n, m });
                     }
+                    if (tomato == 0) {
+                        dist[h][n][m] = -1;
+                    }
                 }
             }
         }
 
-        // for (int i = 0; i < H; i++) {
-        // System.out.println(Arrays.deepToString(box[i]));
-        // }
-        int result = bfs();
+        bfs();
+        int result = 0;
         for (int h = 0; h < H; h++) {
             for (int n = 0; n < N; n++) {
                 for (int m = 0; m < M; m++) {
-                    if (box[h][n][m] == 0) {
+                    if (dist[h][n][m] == -1) {
                         System.out.println(-1);
                         return;
                     }
+                    result = Math.max(result, dist[h][n][m]);
                 }
             }
         }
         System.out.println(result);
     }
 
-    private static int bfs() {
-        int day = 0;
+    private static void bfs() {
         while (!q.isEmpty()) {
-            int size = q.size();
-            for (int i = 0; i < size; i++) {
-                int[] point = q.poll();
-                for (int j = 0; j < 6; j++) {
-                    int nextH = point[0] + dh[j];
-                    int nextN = point[1] + dn[j];
-                    int nextM = point[2] + dm[j];
-                    if (iNR(nextH, H) || iNR(nextM, M) || iNR(nextN, N)) {
-                        continue;
-                    }
-                    if (box[nextH][nextN][nextM] == 0) {
-                        box[nextH][nextN][nextM] = 1;
-                        q.offer(new int[] { nextH, nextN, nextM });
-                    }
+            int[] point = q.poll();
+            for (int j = 0; j < 6; j++) {
+                int nextH = point[0] + dh[j];
+                int nextN = point[1] + dn[j];
+                int nextM = point[2] + dm[j];
+                if (iNR(nextH, H) || iNR(nextM, M) || iNR(nextN, N)) {
+                    continue;
+                }
+                if (box[nextH][nextN][nextM] == 0) {
+                    box[nextH][nextN][nextM] = 1;
+                    q.offer(new int[] { nextH, nextN, nextM });
+                    dist[nextH][nextN][nextM] = dist[point[0]][point[1]][point[2]] + 1;
                 }
             }
-            day++;
         }
-
-        return day - 1;
     }
 
     private static boolean iNR(int v, int R) { // is not range
