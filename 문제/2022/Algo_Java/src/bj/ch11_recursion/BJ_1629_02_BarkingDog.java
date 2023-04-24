@@ -22,7 +22,11 @@ public class BJ_1629_02_BarkingDog {
         }
         long val = a * pow(a, b / 2, c);
         val = val * val % c;
-        if(b%2)
-        return nextV % c;
+        if (b % 2 == 0) {
+            return val;
+        }
+        return val * a % c;
     }
+
+    
 }
