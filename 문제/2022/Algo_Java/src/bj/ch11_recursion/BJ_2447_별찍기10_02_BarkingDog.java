@@ -28,12 +28,7 @@ public class BJ_2447_별찍기10_02_BarkingDog {
 
     private static void drawStar(int n, int y, int x) {
         if (n == 1) { // base condition
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    map[y + i][x + j] = 1;
-                }
-            }
-            map[y + 1][x + 1] = 0; // 빈칸 뚫기
+            map[y][x] = 1;
             return;
         }
 
@@ -45,6 +40,5 @@ public class BJ_2447_별찍기10_02_BarkingDog {
                 drawStar(n / 3, y + (n / 3) * i, x + (n / 3) * j);
             }
         }
-        return;
     }
 }

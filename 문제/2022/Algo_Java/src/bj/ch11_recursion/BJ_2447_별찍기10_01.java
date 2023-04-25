@@ -15,15 +15,18 @@ public class BJ_2447_별찍기10_01 {
         map = new int[N][N];
 
         drawStar(N, 0, 0);
+
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (map[i][j] == 1)
-                    System.out.print("*");
+                    sb.append("*");
                 if (map[i][j] == 0)
-                    System.out.print(" ");
+                    sb.append(" ");
             }
-            System.out.println();
+            sb.append('\n');
         }
+        System.out.print(sb.toString());
     }
 
     private static void drawStar(int n, int y, int x) {
