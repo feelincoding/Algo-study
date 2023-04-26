@@ -1,4 +1,4 @@
-package bj.ch09_bfs;
+package bj.ch09_Bfs;
 
 import java.util.*;
 
