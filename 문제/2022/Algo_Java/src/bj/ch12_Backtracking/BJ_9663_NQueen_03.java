@@ -27,13 +27,13 @@ public class BJ_9663_NQueen_03 {
             }
         }
 
-        // queen(0);
+        queen(0);
 
-        // System.out.println(result);
-        draw(2, 2, 1);
-        for (int i = 0; i < N; i++) {
-            System.out.println(Arrays.toString(map[i]));
-        }
+        System.out.println(result);
+        // draw(2, 2, 1);
+        // for (int i = 0; i < N; i++) {
+        //     System.out.println(Arrays.toString(map[i]));
+        // }
     }
 
     private static void queen(int count) {
@@ -60,8 +60,11 @@ public class BJ_9663_NQueen_03 {
         for (int i = 0; i < ((N - y) > (N - x) ? (N - x) : (N - y)); i++) { // \
             map[y + i][x + i] = v;
         }
-        for (int i = 0; i < ((N - y) > x ? x : (N - y)); i++) { // /
-            map[y - i][x - i] = v;
+        for (int i = 0; i < (y < (N - x - 1) ? y + 1 : N - x); i++) { // / 의 위에
+            map[y - i][x + i] = v;
+        }
+        for (int i = 0; i < ((N - y - 1) < x ? N - y : x + 1); i++) { // / 의 아래
+            map[y + i][x - i] = v;
         }
     }
 }
