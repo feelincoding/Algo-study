@@ -27,9 +27,13 @@ public class BJ_9663_NQueen_03 {
             }
         }
 
-        queen(0);
+        // queen(0);
 
-        System.out.println(result);
+        // System.out.println(result);
+        draw(2, 2, 1);
+        for (int i = 0; i < N; i++) {
+            System.out.println(Arrays.toString(map[i]));
+        }
     }
 
     private static void queen(int count) {
