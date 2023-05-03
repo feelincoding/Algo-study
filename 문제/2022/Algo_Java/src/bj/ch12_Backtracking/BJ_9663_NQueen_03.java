@@ -50,7 +50,7 @@ public class BJ_9663_NQueen_03 {
         }
     }
 
-    private static void draw(int y, int x, int v) {// 어쩌라고
+    private static void draw(int y, int x, int v) {// 
         for (int i = 0; i < N - x; i++) { // 가로
             map[y][x + i] = v;
         }

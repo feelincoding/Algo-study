@@ -49,7 +49,7 @@ public class BJ_9663_NQueen_01 {
         }
     }
 
-    private static boolean verific(int y, int x) {// 어쩌라고
+    private static boolean verific(int y, int x) {// 
         for (int[] queen : queens) {
             if (queen[0] == -1 || queen[1] == -1) {
                 break;
