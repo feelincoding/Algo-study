@@ -27,44 +27,48 @@ public class BJ_9663_NQueen_03 {
             }
         }
 
-        queen(0);
+        queen(0, map);
 
         System.out.println(result);
         // draw(2, 2, 1);
         // for (int i = 0; i < N; i++) {
-        //     System.out.println(Arrays.toString(map[i]));
+        // System.out.println(Arrays.toString(map[i]));
         // }
     }
 
-    private static void queen(int count) {
+    private static void queen(int count, int[][] m) {
+        int[][] localMap = m.clone();
         if (count == N) { // 퀸 배치 완료
+            for (int i = 0; i < N; i++) {
+                System.out.println(Arrays.toString(localMap[i]));
+            }
             result++;
             return;
         }
         for (int i = 0; i < N; i++) {
-            if (map[count][i] == 0) {
-                draw(count, i, 1);
-                queen(count + 1);
-                draw(count, i, 0);
+            if (localMap[count][i] == 0) {
+                draw(count, i, 1, localMap);
+                queen(count + 1, localMap);
+                draw(count, i, 0, localMap);
             }
         }
     }
 
-    private static void draw(int y, int x, int v) {// 
+    private static void draw(int y, int x, int v, int[][] m) {//
         for (int i = 0; i < N - x; i++) { // 가로
-            map[y][x + i] = v;
+            m[y][x + i] = v;
         }
         for (int i = 0; i < N - y; i++) { // 세로
-            map[y + i][x] = v;
+            m[y + i][x] = v;
         }
         for (int i = 0; i < ((N - y) > (N - x) ? (N - x) : (N - y)); i++) { // \
-            map[y + i][x + i] = v;
+            m[y + i][x + i] = v;
         }
         for (int i = 0; i < (y < (N - x - 1) ? y + 1 : N - x); i++) { // / 의 위에
-            map[y - i][x + i] = v;
+            m[y - i][x + i] = v;
         }
         for (int i = 0; i < ((N - y - 1) < x ? N - y : x + 1); i++) { // / 의 아래
-            map[y + i][x - i] = v;
+            m[y + i][x - i] = v;
         }
     }
 }
